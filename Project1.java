@@ -11,6 +11,77 @@ public class Project1 {
 
 
 
+
+    private void bfs(int nodex){
+        int[] visited = new int[nodes+1];
+        int i ;
+        Queue<Integer> queue = new LinkedList<>();
+        visited[nodex] = 1;
+        queue.add(nodex);
+        while (!queue.isEmpty()) {
+            nodex = queue.poll();
+            prt.printf("%d  ", nodex);
+            for (i = 1; i <= nodes; i++) {
+                if (g[nodex][i] != max && visited[i] == 0) {
+                    visited[i] = 1;
+                    queue.add(i);
+                }
+            }
+        }
+   } // end DFS from nodex
+
+
+
+
+    private void process(String fn) { 
+		int i, j, k, wt, n, nodex;	  
+		
+		try{ // read input 
+			Scanner inf = new Scanner(new File(fn)); 
+			//read no. of nodes
+			nodes = inf.nextInt();
+			//read no. of edges
+			edges = inf.nextInt();
+			//Allocate space for graph[][] and visit[]
+			g = new int[nodes+1][nodes+1];
+			visit = new int[nodes+1];
+
+			// initialize g[][] matrix
+			for (i = 1; i <= nodes; i++)
+				for (j = 1; j <= nodes; j++)
+					g[i][j]= max;
+				
+			// read graph data			
+			for (k = 1; k <= edges; k++){
+				i  = inf.nextInt();			
+				j  = inf.nextInt();			
+				wt = inf.nextInt();
+				g[i][j] = g[j][i] = wt;
+			}// end for
+			
+			//read no. of searches
+			n = inf.nextInt();
+			for (k = 1; k <= n; k++){
+				//Read starting node
+				nodex = inf.nextInt();
+				
+				// //DFS Graph Traversal from nodex
+				// for (j = 1; j <= nodes; j++) 
+				// 	visit[j] = 0;
+				// prt.printf("\n\tDFS from (%d):", nodex);
+				// dfs(nodex);//non recursive
+
+				//BFS Graph Traversal from nodex
+				prt.printf("\n\tBFS from (%d):", nodex);
+				bfs(nodex);
+			}// end for
+
+			inf.close();
+		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
+	}  // end process method
+
+
+
     public static void main(String[] args) throws Exception{
 		int cnt = args.length;
 		String fn;
