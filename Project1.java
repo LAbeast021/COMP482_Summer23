@@ -36,46 +36,21 @@ public class Project1 {
     private void process(String fn) { 
 		int i, j, k, wt, n, nodex;	  
 		
-		try{ // read input 
+		try{ 
 			Scanner inf = new Scanner(new File(fn)); 
-			//read no. of nodes
 			nodes = inf.nextInt();
-			//read no. of edges
-			edges = inf.nextInt();
+
 			//Allocate space for graph[][] and visit[]
 			g = new int[nodes+1][nodes+1];
 			visit = new int[nodes+1];
 
 			// initialize g[][] matrix
-			for (i = 1; i <= nodes; i++)
-				for (j = 1; j <= nodes; j++)
-					g[i][j]= max;
+			for (i = 1; i <= nodes; i++){
+				for (j = 1; j <= nodes; j++){
+					g[i][j]= inf.nextInt();
+                }
+            }
 				
-			// read graph data			
-			for (k = 1; k <= edges; k++){
-				i  = inf.nextInt();			
-				j  = inf.nextInt();			
-				wt = inf.nextInt();
-				g[i][j] = g[j][i] = wt;
-			}// end for
-			
-			//read no. of searches
-			n = inf.nextInt();
-			for (k = 1; k <= n; k++){
-				//Read starting node
-				nodex = inf.nextInt();
-				
-				// //DFS Graph Traversal from nodex
-				// for (j = 1; j <= nodes; j++) 
-				// 	visit[j] = 0;
-				// prt.printf("\n\tDFS from (%d):", nodex);
-				// dfs(nodex);//non recursive
-
-				//BFS Graph Traversal from nodex
-				prt.printf("\n\tBFS from (%d):", nodex);
-				bfs(nodex);
-			}// end for
-
 			inf.close();
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 	}  // end process method
@@ -93,10 +68,35 @@ public class Project1 {
 		
 		fn = args[0];
 
-		Project1 g = new Project1();
+		Project1 P = new Project1();
 		
-		g.process(fn); 
+		P.process(fn); 
 				
 		System.out.printf("\n\tAuthor: K. Hesampour Date: " + java.time.LocalDate.now()); 
 	}	
 }
+
+// // read graph data			
+			// for (k = 1; k <= edges; k++){
+			// 	i  = inf.nextInt();			
+			// 	j  = inf.nextInt();			
+			// 	wt = inf.nextInt();
+			// 	g[i][j] = g[j][i] = wt;
+			// }// end for
+			
+			//read no. of searches
+			// n = inf.nextInt();
+			// for (k = 1; k <= n; k++){
+			// 	//Read starting node
+			// 	nodex = inf.nextInt();
+				
+				// //DFS Graph Traversal from nodex
+				// for (j = 1; j <= nodes; j++) 
+				// 	visit[j] = 0;
+				// prt.printf("\n\tDFS from (%d):", nodex);
+				// dfs(nodex);//non recursive
+
+				//BFS Graph Traversal from nodex
+			// 	prt.printf("\n\tBFS from (%d):", nodex);
+			// 	bfs(nodex);
+			// }// end for
