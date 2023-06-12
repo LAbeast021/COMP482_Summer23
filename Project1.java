@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.*;
 
 public class Project1 {
+    
     PrintStream prt = System.out;
 
     int g[][], visit[], nodes, edges, max = 9999;
@@ -12,21 +13,24 @@ public class Project1 {
 
 
 
-    private void bfs(int nodex){
+    private void bfs(){
+
         int[] visited = new int[nodes+1];
-        int i ;
+        int i, nodex = nodes;
         Queue<Integer> queue = new LinkedList<>();
+
         visited[nodex] = 1;
         queue.add(nodex);
         while (!queue.isEmpty()) {
             nodex = queue.poll();
-            prt.printf("%d  ", nodex);
-            for (i = 1; i <= nodes; i++) {
+            prt.printf(" %d  ", nodex);
+            for (i = 1; i <= nodex; i++) {
                 if (g[nodex][i] != max && visited[i] == 0) {
                     visited[i] = 1;
                     queue.add(i);
                 }
             }
+            // prt.printf("hellooo  d% " , nodex);
         }
    } // end DFS from nodex
 
@@ -35,7 +39,6 @@ public class Project1 {
 
     private void process(String fn) { 
 		int i, j, k, wt, n, nodex;	  
-		
 		try{ 
 			Scanner inf = new Scanner(new File(fn)); 
 			nodes = inf.nextInt();
@@ -53,20 +56,24 @@ public class Project1 {
 				
 			inf.close();
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
+
+        prt.printf("injaye %d --- %d  alooo" , g[3][4] , g[4][3]);
+        bfs();
 	}  // end process method
 
 
 
     public static void main(String[] args) throws Exception{
-		int cnt = args.length;
+		// int cnt = args.length;
 		String fn;
-		if (cnt < 1){
-		    System.out.printf("\n\tOOOPS Invalid No. of arguments!" +
-			"\n\tTO Execute: java xxxxxH9 inputfilename");
-			return;
-		}
+		// if (cnt < 1){
+		//     System.out.printf("\n\tOOOPS Invalid No. of arguments!" +
+		// 	"\n\tTO Execute: java xxxxxH9 inputfilename");
+		// 	return;
+		// }
 		
-		fn = args[0];
+		// fn = args[0];
+		fn = "input.txt";
 
 		Project1 P = new Project1();
 		
