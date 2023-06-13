@@ -12,7 +12,9 @@ int bfs(int input_size, int &path_length,int path[] ,bool adj_mat[][SIZE]){
     bool root_flag = 1;
     for(int counter0 = 0; counter0 < input_size; counter0+=1){
         if(!flag_found){
+            
             if(root_flag){
+            
                 root_flag = 0;
                 seen[0] = 1;
             if(input_size == 1){

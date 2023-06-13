@@ -15,27 +15,24 @@ public class Project1 {
 
     private void bfs(){
 
-        int[] visited = new int[nodes+1];
-        int i, nodex = nodes;
+        int[] parent = new int[nodes+1];
+        int i, nodex = 1;
         Queue<Integer> queue = new LinkedList<>();
 
-        visited[nodex] = 1;
+        parent[nodex] = 1;
         queue.add(nodex);
         while (!queue.isEmpty()) {
             nodex = queue.poll();
             prt.printf(" %d  ", nodex);
             for (i = 1; i <= nodex; i++) {
-                if (g[nodex][i] != max && visited[i] == 0) {
-                    visited[i] = 1;
+                if (g[nodex][i] != max && parent[i] == 0) {
+                    parent[i] = 1;
                     queue.add(i);
                 }
             }
             // prt.printf("hellooo  d% " , nodex);
         }
    } // end DFS from nodex
-
-
-
 
     private void process(String fn) { 
 		int i, j, k, wt, n, nodex;	  
