@@ -8,9 +8,8 @@ public class Project1 {
     
     PrintStream prt = System.out;
 
-    int g[][], visit[], nodes, edges;
+    int g[][], visit[], nodes, edges , pathCounter = 0;
     // Queue<Integer> queue = new LinkedList<>();
-
 
     private void bfs(){
         int i , j, nodex = 1;
@@ -42,22 +41,18 @@ public class Project1 {
                 g[current][1] = 0;
                 g[1][current] = 0;
                 path.add(1);
-                prt.println("The Queue contents:" + path);
+                pathCounter++ ;
+
+                Collections.reverse((List<?>) path);
+                prt.println("Path # " + pathCounter + ": " + path);
 
                 parent[nodes] = 0 ;
 
                 bfs();
 
             }
-            // else {
-            //     queue.poll();
-            // }
         }
-        // prt.printf("[ ");
-        // for (i = 1 ; i <= nodes ; i++) {
-        //     prt.printf(" %3d ,  ", parent[i]);
-        // }
-   } // end DFS from nodex
+   }
 // ____________________________________________________________________________________________________\\
     private void process(String fn) { 
 		int i, j, k, wt, n, nodex;	  
@@ -80,51 +75,19 @@ public class Project1 {
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
         bfs();
+        if(pathCounter == 0) {
+            prt.printf("There were no path found " );
+        }
+        else {
+            prt.printf("There were %2d Paths" , pathCounter);
+        }
 	}  // end process method
 
-
-
     public static void main(String[] args) throws Exception{
-		// int cnt = args.length;
 		String fn;
-		// if (cnt < 1){
-		//     System.out.printf("\n\tOOOPS Invalid No. of arguments!" +
-		// 	"\n\tTO Execute: java xxxxxH9 inputfilename");
-		// 	return;
-		// }
-		
-		// fn = args[0];
 		fn = "input.txt";
-
 		Project1 P = new Project1();
-		
-		P.process(fn); 
-				
-		System.out.printf("\n\tAuthor: K. Hesampour Date: " + java.time.LocalDate.now()); 
+		P.process(fn); 	
+		System.out.printf("\nAuthor: K. Hesampour Date: " + java.time.LocalDate.now()); 
 	}	
 }
-
-// // read graph data			
-			// for (k = 1; k <= edges; k++){
-			// 	i  = inf.nextInt();			
-			// 	j  = inf.nextInt();			
-			// 	wt = inf.nextInt();
-			// 	g[i][j] = g[j][i] = wt;
-			// }// end for
-			
-			//read no. of searches
-			// n = inf.nextInt();
-			// for (k = 1; k <= n; k++){
-			// 	//Read starting node
-			// 	nodex = inf.nextInt();
-				
-				// //DFS Graph Traversal from nodex
-				// for (j = 1; j <= nodes; j++) 
-				// 	visit[j] = 0;
-				// prt.printf("\n\tDFS from (%d):", nodex);
-				// dfs(nodex);//non recursive
-
-				//BFS Graph Traversal from nodex
-			// 	prt.printf("\n\tBFS from (%d):", nodex);
-			// 	bfs(nodex);
-			// }// end for
