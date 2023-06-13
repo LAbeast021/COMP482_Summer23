@@ -11,6 +11,9 @@ public class Main {
         int[] level1Neighbors = new int[inputSize];
         int[] level2Neighbors = new int[inputSize];
         int[] parent = new int[inputSize];
+        for (int counter1 = 1; counter1 < inputSize; counter1++) {
+            parent[counter1] = -1;
+        }
         int[] seen = new int[inputSize];
         int rootFlag = 1;
 
@@ -46,18 +49,22 @@ public class Main {
                                 break;
                             } else {
                                 for (int counter2 = 0; counter2 < inputSize; counter2++) {
-                                    if (adjMat[counter1][counter2] == 1 && seen[counter2] == 0) {
+                                    if (adjMat[counter1][counter2] == 1 && seen[counter2] == 0 && parent[counter2]==-1) {
                                         level2Neighbors[counter2] = 1;
                                         parent[counter2] = counter1;
                                     }
                                 }
                             }
                         }
+                        level1Neighbors[counter1] = 0;
                     }
                     if (flagSweep == 1) {
                         // pathLength[0] += 1;
                     }
                     System.arraycopy(level2Neighbors, 0, level1Neighbors, 0, inputSize);
+                    for (int counter2 = 0; counter2 < inputSize; counter2++) {
+                        level2Neighbors[counter2] = 0;
+                    }
                 }
             }
         }

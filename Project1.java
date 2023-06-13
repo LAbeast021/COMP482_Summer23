@@ -8,32 +8,57 @@ public class Project1 {
     
     PrintStream prt = System.out;
 
-    int g[][], visit[], nodes, edges, max = 9999;
-
-
+    int g[][], visit[], nodes, edges;
+    // Queue<Integer> queue = new LinkedList<>();
 
 
     private void bfs(){
-
-        int[] parent = new int[nodes+1];
-        int i, nodex = 1;
+        int i , j, nodex = 1;
         Queue<Integer> queue = new LinkedList<>();
-
-        parent[nodex] = 1;
+        int[] parent = new int[nodes+1];
+        
+        parent[1] = 1;
         queue.add(nodex);
         while (!queue.isEmpty()) {
             nodex = queue.poll();
-            prt.printf(" %d  ", nodex);
-            for (i = 1; i <= nodex; i++) {
-                if (g[nodex][i] != max && parent[i] == 0) {
-                    parent[i] = 1;
+            for (i = 2; i <= nodes; i++) {
+                if (g[nodex][i] != 0 && parent[i] == 0) {
+                    parent[i] = nodex;
                     queue.add(i);
                 }
             }
-            // prt.printf("hellooo  d% " , nodex);
-        }
-   } // end DFS from nodex
+            if(parent[nodes] != 0) {
+                Queue<Integer> path = new LinkedList<>();
+                int previous ,  current = nodes;
+                path.add(current);
+                while(parent[current] != 1) {
+                    previous = current;
+                    current = parent[current];
+                    path.add(current);
+                    g[current][previous] = 0;
+                    g[previous][current] = 0;
 
+                }
+                g[current][1] = 0;
+                g[1][current] = 0;
+                path.add(1);
+                prt.println("The Queue contents:" + path);
+
+                parent[nodes] = 0 ;
+
+                bfs();
+
+            }
+            // else {
+            //     queue.poll();
+            // }
+        }
+        // prt.printf("[ ");
+        // for (i = 1 ; i <= nodes ; i++) {
+        //     prt.printf(" %3d ,  ", parent[i]);
+        // }
+   } // end DFS from nodex
+// ____________________________________________________________________________________________________\\
     private void process(String fn) { 
 		int i, j, k, wt, n, nodex;	  
 		try{ 
@@ -54,7 +79,6 @@ public class Project1 {
 			inf.close();
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
-        prt.printf("injaye %d --- %d  alooo" , g[3][4] , g[4][3]);
         bfs();
 	}  // end process method
 
