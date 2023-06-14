@@ -53,18 +53,14 @@ public class Project1 {
             }
         }
    }
-// ____________________________________________________________________________________________________\\
+
     private void process(String fn) { 
-		int i, j, k, wt, n, nodex;	  
+		int i, j;	  
 		try{ 
 			Scanner inf = new Scanner(new File(fn)); 
 			nodes = inf.nextInt();
 
-			//Allocate space for graph[][] and visit[]
 			g = new int[nodes+1][nodes+1];
-			visit = new int[nodes+1];
-
-			// initialize g[][] matrix
 			for (i = 1; i <= nodes; i++){
 				for (j = 1; j <= nodes; j++){
 					g[i][j]= inf.nextInt();
@@ -76,7 +72,7 @@ public class Project1 {
 
         bfs();
         if(pathCounter == 0) {
-            prt.printf("There were no path found " );
+            prt.printf("There were no paths found " );
         }
         else {
             prt.printf("There were %2d Paths" , pathCounter);
