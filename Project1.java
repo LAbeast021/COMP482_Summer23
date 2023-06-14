@@ -9,10 +9,9 @@ public class Project1 {
     PrintStream prt = System.out;
 
     int g[][], visit[], nodes, edges , pathCounter = 0;
-    // Queue<Integer> queue = new LinkedList<>();
 
     private void bfs(){
-        int i , j, nodex = 1;
+        int i , nodex = 1;
         Queue<Integer> queue = new LinkedList<>();
         int[] parent = new int[nodes+1];
         
@@ -34,12 +33,10 @@ public class Project1 {
                     previous = current;
                     current = parent[current];
                     path.add(current);
-                    g[current][previous] = 0;
-                    g[previous][current] = 0;
+                    g[current][previous] = g[previous][current] = 0;
 
                 }
-                g[current][1] = 0;
-                g[1][current] = 0;
+                g[current][1] = g[1][current] = 0;
                 path.add(1);
                 pathCounter++ ;
 
@@ -49,7 +46,6 @@ public class Project1 {
                 parent[nodes] = 0 ;
 
                 bfs();
-
             }
         }
    }
@@ -65,8 +61,7 @@ public class Project1 {
 				for (j = 1; j <= nodes; j++){
 					g[i][j]= inf.nextInt();
                 }
-            }
-				
+            }	
 			inf.close();
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
