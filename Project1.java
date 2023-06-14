@@ -1,20 +1,14 @@
 // Kiarash Hesampour
 // Project #1
-
 import java.io.*;
 import java.util.*;
-
 public class Project1 {
-    
     PrintStream prt = System.out;
-
     int g[][], visit[], nodes, edges , pathCounter = 0;
-
     private void bfs(){
         int i , nodex = 1;
         Queue<Integer> queue = new LinkedList<>();
         int[] parent = new int[nodes+1];
-        
         parent[1] = 1;
         queue.add(nodex);
         while (!queue.isEmpty()) {
@@ -39,17 +33,13 @@ public class Project1 {
                 g[current][1] = g[1][current] = 0;
                 path.add(1);
                 pathCounter++ ;
-
                 Collections.reverse((List<?>) path);
                 prt.println("Path # " + pathCounter + ": " + path);
-
                 parent[nodes] = 0 ;
-
                 bfs();
             }
         }
    }
-
     private void process(String fn) { 
 		int i, j;	  
 		try{ 
@@ -73,7 +63,6 @@ public class Project1 {
             prt.printf("There were %2d Paths" , pathCounter);
         }
 	}  // end process method
-
     public static void main(String[] args) throws Exception{
 		String fn;
 		fn = "input.txt";
