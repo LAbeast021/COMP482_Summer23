@@ -15,6 +15,11 @@ public class Project2 {
 			Scanner inf = new Scanner(new File(fn)); 
 			people = inf.nextInt();
             bunker = new int [people+1][3];
+            for( i = 1 ; i <= people ; i++){
+                for (j = 1 ; j <= 2 ; j++){
+                    bunker[i][j] = inf.nextInt();
+                }
+            }
 
 			inf.close();
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
