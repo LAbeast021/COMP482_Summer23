@@ -5,6 +5,8 @@ import java.io.*;
 import java.util.*;
 public class Project2 {
     PrintStream prt = System.out;
+    public static int bunker[][];
+
 
 
     private void process(String fn) { 
@@ -12,6 +14,7 @@ public class Project2 {
 		try{ 
 			Scanner inf = new Scanner(new File(fn)); 
 			people = inf.nextInt();
+            bunker = new int [people+1][3];
 
 			inf.close();
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
