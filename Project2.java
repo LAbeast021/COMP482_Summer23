@@ -23,6 +23,7 @@ public class Project2 {
 
 			inf.close();
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
+        prt.println(Arrays.deepToString(bunker));
 
 	}  // end process method
     public static void main(String[] args) throws Exception{
