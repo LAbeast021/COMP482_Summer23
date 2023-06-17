@@ -7,16 +7,23 @@ public class Project2 {
 
     PrintStream prt = System.out;
     public static int bunker[][];
-    public static int currentTotall;
-
-
-    private void firstAlg (){
-        
-    }
+    public static int currentTotall = 0;
 
 
     private void adder (int number){
         currentTotall = currentTotall + number;
+    }
+
+    private void firstAlg (int p){
+        int i,j ;
+        for( i = 1 ; i <= p ; i++){
+                if (bunker[i][1] < bunker[i][2]){
+                    adder(bunker[i][1]);
+                }
+                else{
+                    adder(bunker[i][2]);
+                }
+        }
     }
 
     private void process(String fn) { 
@@ -32,8 +39,9 @@ public class Project2 {
             }
 
 			inf.close();
+            prt.println(Arrays.deepToString(bunker));
+            // firstAlg(people);
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
-        prt.println(Arrays.deepToString(bunker));
 
 	}  // end process method
     public static void main(String[] args) throws Exception{
