@@ -15,7 +15,7 @@ public class Project2 {
     }
 
     private void firstAlg (int p){
-        int i,j ;
+        int i ;
         for( i = 1 ; i <= p ; i++){
                 if (bunker[i][1] < bunker[i][2]){
                     adder(bunker[i][1]);
@@ -24,6 +24,9 @@ public class Project2 {
                     adder(bunker[i][2]);
                 }
         }
+    }
+    private void secondAlg (int p){
+        int i ;
     }
 
     private void process(String fn) { 
@@ -40,7 +43,9 @@ public class Project2 {
 
 			inf.close();
             prt.println(Arrays.deepToString(bunker));
-            // firstAlg(people);
+            firstAlg(people);
+            prt.printf("The result after running first algorithm is %d ", currentTotall);
+            secondAlg(people);
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
 	}  // end process method
