@@ -7,6 +7,17 @@ public class Project2 {
 
     PrintStream prt = System.out;
     public static int bunker[][];
+    public static int currentTotall;
+
+
+    private void firstAlg (){
+        
+    }
+
+
+    private void adder (int number){
+        currentTotall = currentTotall + number;
+    }
 
     private void process(String fn) { 
 		int i, j , people;	  
