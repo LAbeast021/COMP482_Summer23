@@ -29,6 +29,7 @@ public class Project2 {
     }
     private void secondAlg (int p){
         int i , counter = 0 ;
+        currentTotall = 0;
         Arrays.sort(bunker, Comparator.comparingInt(o -> o[0]));
         for( i = 1 ; i <= p ; i++){
             if (counter != (p / 2)){
@@ -63,10 +64,14 @@ public class Project2 {
             }
 
 			inf.close();
+
             prt.println(Arrays.deepToString(bunker));
+
             firstAlg(people);
             prt.printf("The result after running first algorithm is %d ", currentTotall);
+            
             secondAlg(people);
+            prt.printf("The result after running second algorithm is %d ", currentTotall);
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
 	}  // end process method
