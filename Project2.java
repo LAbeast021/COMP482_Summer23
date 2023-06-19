@@ -18,15 +18,18 @@ public class Project2 {
         int i ;
         for( i = 1 ; i <= p ; i++){
                 if (bunker[i][1] < bunker[i][2]){
+                    bunker[i][0] = bunker[i][2] - bunker[i][1];
                     adder(bunker[i][1]);
                 }
                 else{
+                    bunker[i][0] = bunker[i][1] - bunker[i][2];
                     adder(bunker[i][2]);
                 }
         }
     }
     private void secondAlg (int p){
         int i ;
+        Arrays.sort(bunker, Comparator.comparingInt(o -> o[0]));
     }
 
     private void process(String fn) { 
