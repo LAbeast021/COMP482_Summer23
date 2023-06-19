@@ -31,7 +31,7 @@ public class Project2 {
         int i , counter1 = 0 , counter2 = 0 ;
         currentTotall = 0;
         Arrays.sort(bunker, Comparator.comparingInt(o -> o[0]));
-        for( i = 1 ; i <= p ; i++){
+        for( i = p ; i >= 1 ; i--){
             while (counter1 != (p / 2) && counter2 != (p / 2)){
                 if (bunker[i][1] < bunker[i][2]){
                     counter1 ++ ;
@@ -65,13 +65,13 @@ public class Project2 {
 
 			inf.close();
 
-            prt.println(Arrays.deepToString(bunker));
-
+            
             firstAlg(people);
             prt.printf("The result after running first algorithm is %d \n", currentTotall);
             
             secondAlg(people);
-            prt.printf("The result after running second algorithm is %d ", currentTotall);
+            prt.println(Arrays.deepToString(bunker));
+            prt.printf("\nThe result after running second algorithm is %d ", currentTotall);
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
 	}  // end process method
