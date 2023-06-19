@@ -28,25 +28,25 @@ public class Project2 {
         }
     }
     private void secondAlg (int p){
-        int i , counter = 0 ;
+        int i , counter1 = 0 , counter2 = 0 ;
         currentTotall = 0;
         Arrays.sort(bunker, Comparator.comparingInt(o -> o[0]));
         for( i = 1 ; i <= p ; i++){
-            if (counter != (p / 2)){
+            while (counter1 != (p / 2) && counter1 != (p / 2)){
                 if (bunker[i][1] < bunker[i][2]){
+                    counter1 ++ ;
                     adder(bunker[i][1]);
                 }
                 else{
+                    counter2 ++ ;
                     adder(bunker[i][2]);
                 }
             }
-            else {
-                if (bunker[i][1] < bunker[i][2]){
-                    adder(bunker[i][1]);
-                }
-                else{
-                    adder(bunker[i][2]);
-                }
+            if (counter1 == (p/2)) {
+                adder(bunker[i][2]);
+            }
+            else if (counter2 == (p / 2)) {
+                adder(bunker[i][1]);  
             }
         }
     }
@@ -68,7 +68,7 @@ public class Project2 {
             prt.println(Arrays.deepToString(bunker));
 
             firstAlg(people);
-            prt.printf("The result after running first algorithm is %d ", currentTotall);
+            prt.printf("The result after running first algorithm is %d \n", currentTotall);
             
             secondAlg(people);
             prt.printf("The result after running second algorithm is %d ", currentTotall);
