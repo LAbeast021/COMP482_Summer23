@@ -32,7 +32,7 @@ public class Project2 {
         currentTotall = 0;
         Arrays.sort(bunker, Comparator.comparingInt(o -> o[0]));
         for( i = 1 ; i <= p ; i++){
-            while (counter1 != (p / 2) && counter1 != (p / 2)){
+            while (counter1 != (p / 2) && counter2 != (p / 2)){
                 if (bunker[i][1] < bunker[i][2]){
                     counter1 ++ ;
                     adder(bunker[i][1]);
