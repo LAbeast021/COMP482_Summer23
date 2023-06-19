@@ -28,8 +28,26 @@ public class Project2 {
         }
     }
     private void secondAlg (int p){
-        int i ;
+        int i , counter = 0 ;
         Arrays.sort(bunker, Comparator.comparingInt(o -> o[0]));
+        for( i = 1 ; i <= p ; i++){
+            if (counter != (p / 2)){
+                if (bunker[i][1] < bunker[i][2]){
+                    adder(bunker[i][1]);
+                }
+                else{
+                    adder(bunker[i][2]);
+                }
+            }
+            else {
+                if (bunker[i][1] < bunker[i][2]){
+                    adder(bunker[i][1]);
+                }
+                else{
+                    adder(bunker[i][2]);
+                }
+            }
+        }
     }
 
     private void process(String fn) { 
