@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.*;
 public class Project3 {
     PrintStream prt = System.out;
+    public static int numOfWords ;
 
     private void process(String fn) { 
 		int i, j , people;	  
