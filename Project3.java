@@ -11,6 +11,11 @@ public class Project3 {
 		int i, j , people;	  
 		try{ 
 			Scanner inf = new Scanner(new File(fn)); 
+            numOfWords = inf.nextInt();
+
+
+
+            inf.close();
 			
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
