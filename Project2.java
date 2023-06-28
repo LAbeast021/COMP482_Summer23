@@ -69,12 +69,12 @@ public class Project2 {
 
             
             firstAlg(people);
-            prt.printf("The result after running first algorithm is -> %d \n", currentTotall);
+            prt.printf("%d \n", currentTotall);
             
             secondAlg(people);
-            // prt.println(Arrays.deepToString(bunker)); DISPLAYS THE 2D ARRAY 
+            // prt.println(Arrays.deepToString(bunker));
 
-            prt.printf("The result after running second algorithm is -> %d ", currentTotall);
+            prt.printf("%d ", currentTotall);
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
 	}  // end process method
