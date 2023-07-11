@@ -2,10 +2,42 @@
 // Project #3
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
+
+import java.io.*;
+import java.util.*;
 
 public class Project3 {
+
+
+	private void process(String fn) { 
+		int i, j , people;	  
+		try{ 
+			Scanner inf = new Scanner(new File(fn)); 
+			people = inf.nextInt();
+            bunker = new int [people+1][3];
+            for( i = 1 ; i <= people ; i++){
+                for (j = 1 ; j <= 2 ; j++){
+                    bunker[i][j] = inf.nextInt();
+                }
+            }
+
+			inf.close();
+
+            
+            firstAlg(people);
+            prt.printf("%d \n", currentTotall);
+            
+            secondAlg(people);
+            // prt.println(Arrays.deepToString(bunker));
+
+            prt.printf("%d ", currentTotall);
+		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
+
+	}  // end process method
     public static void main(String[] args) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
