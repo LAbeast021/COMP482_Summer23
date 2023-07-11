@@ -17,12 +17,17 @@ public class Project3 {
 		int i, j , people;	  
 		try{ 
 			Scanner inf = new Scanner(new File(fn)); 
-			people = inf.nextInt();
            
 		}catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
 	}  // end process method
     public static void main(String[] args) {
+
+		String fn;
+		fn = "input.txt";
+		Project3 P = new Project3();
+		P.process(fn); 	 
+
         try {
             BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
             String line = reader.readLine();
