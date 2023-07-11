@@ -21,11 +21,11 @@ public class Project3 {
             }
 
             String massage = reader.readLine();
-            int[] OPT = new int[massage.length() + 1];
-            OPT[0] = 1;
+            int[] numOfways = new int[massage.length() + 1];
+            numOfways[0] = 1;
 
             for (int counter0 = 0; counter0 < massage.length(); counter0++) {
-                OPT[counter0 + 1] = 0;
+                numOfways[counter0 + 1] = 0;
             }
 
             for (int counter0 = 0; counter0 < massage.length(); counter0++) {
@@ -38,31 +38,23 @@ public class Project3 {
 
                     for (int counter2 = 0; counter2 < inputLength; counter2++) {
                         if (tempTempMassage.equals(dictionary[counter2])) {
-                            OPT[counter0 + 1] += OPT[counter0 + 1 - tempTempMassage.length()];
+                            numOfways[counter0 + 1] += numOfways[counter0 + 1 - tempTempMassage.length()];
                         }
                     }
                 }
             }
 
             reader.close();
-            prt.println(OPT[massage.length()]);
+            prt.println(numOfways[massage.length()]);
         } 
 		catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
 	}  // end process method
 
     public static void main(String[] args) {
-
 		String fn;
 		fn = "input.txt";
 		Project3 P = new Project3();
-		P.process(fn); 	 
-
-       
+		P.process(fn); 	       
     }
 }
- 
-		// catch (IOException e) {
-        //     System.out.println("Unable to open file");
-        // }
-
