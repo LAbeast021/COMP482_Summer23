@@ -28,7 +28,10 @@ public class Project3 {
 		Project3 P = new Project3();
 		P.process(fn); 	 
 
-        try {
+       
+    }
+}
+ try {
             BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
             String line = reader.readLine();
             int inputLength = Integer.parseInt(line);
@@ -69,6 +72,4 @@ public class Project3 {
         } catch (IOException e) {
             System.out.println("Unable to open file");
         }
-    }
-}
 
