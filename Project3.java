@@ -9,42 +9,43 @@ public class Project3 {
 
 	private void process(String fn) { 
 		try {
-            BufferedReader reader = new BufferedReader(new FileReader(fn));
-            String line = reader.readLine();
-            int inputLength = Integer.parseInt(line);
-            String[] dictionary = new String[inputLength];
+            BufferedReader inpFile = new BufferedReader(new FileReader(fn));
+			
+            String line = inpFile.readLine();
+            int inputLength = Integer.parseInt(line), counter0 , counter1 , counter2 ;
+            String[] message = new String[inputLength];
 
-            for (int counter0 = 0; counter0 < inputLength; counter0++) {
-                line = reader.readLine();
+            for ( counter0 = 0; counter0 < inputLength; counter0++) {
+                line = inpFile.readLine();
                 line = line.substring(2);
-                dictionary[counter0] = line;
+                message[counter0] = line;
             }
 
-            String massage = reader.readLine();
+            String massage = inpFile.readLine();
             int[] numOfways = new int[massage.length() + 1];
             numOfways[0] = 1;
 
-            for (int counter0 = 0; counter0 < massage.length(); counter0++) {
+            for ( counter0 = 0; counter0 < massage.length(); counter0++) {
                 numOfways[counter0 + 1] = 0;
             }
 
-            for (int counter0 = 0; counter0 < massage.length(); counter0++) {
+            for ( counter0 = 0; counter0 < massage.length(); counter0++) {
                 String tempMassage = massage;
                 tempMassage = tempMassage.substring(0, counter0 + 1);
 
-                for (int counter1 = 0; counter1 <= tempMassage.length(); counter1++) {
+                for ( counter1 = 0; counter1 <= tempMassage.length(); counter1++) {
                     String tempTempMassage = tempMassage;
                     tempTempMassage = tempTempMassage.substring(tempMassage.length() - counter1);
 
-                    for (int counter2 = 0; counter2 < inputLength; counter2++) {
-                        if (tempTempMassage.equals(dictionary[counter2])) {
+                    for ( counter2 = 0; counter2 < inputLength; counter2++) {
+                        if (tempTempMassage.equals(message[counter2])) {
                             numOfways[counter0 + 1] += numOfways[counter0 + 1 - tempTempMassage.length()];
                         }
                     }
                 }
             }
 
-            reader.close();
+            inpFile.close();
             prt.println(numOfways[massage.length()]);
         } 
 		catch(Exception e){prt.printf("\nI/O Error %s", e );}
