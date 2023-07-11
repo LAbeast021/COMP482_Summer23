@@ -8,13 +8,8 @@ public class Project3 {
 	PrintStream prt = System.out;	
 
 	private void process(String fn) { 
-		// int i, j , people;	  
-		// try{ 
-		// 	Scanner inf = new Scanner(new File(fn)); 
-           
-		// }
 		try {
-            BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(fn));
             String line = reader.readLine();
             int inputLength = Integer.parseInt(line);
             String[] dictionary = new String[inputLength];
@@ -50,7 +45,7 @@ public class Project3 {
             }
 
             reader.close();
-            System.out.println(OPT[massage.length()]);
+            prt.println(OPT[massage.length()]);
         } 
 		catch(Exception e){prt.printf("\nI/O Error %s", e );}
 
